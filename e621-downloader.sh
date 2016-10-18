@@ -26,7 +26,7 @@ fi
 
 
 
-while True; do
+while true; do
   for e621_image_url in $(curl --silent --referer "https://e621.net" --user-agent "Mozilla/5.0" --retry 3 --retry-delay 3 \
       "https://e621.net/post/index.json?limit=320&page=$e621_page&tags=$e621_tags" | jq '.[] | .file_url'); do
 	  e621_image_url=`echo $e621_image_url | sed 's/\"//g'`
